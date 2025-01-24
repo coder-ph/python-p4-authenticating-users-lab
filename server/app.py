@@ -58,7 +58,7 @@ class Login(Resource):
 class CheckSession(Resource):
     
     def get(self):
-        user = User.query.filter(User.username == session.get('user_id')).first()
+        user = User.query.filter(User.id == session.get('user_id')).first()
         if user:
             return user.to_dict()
         else:
